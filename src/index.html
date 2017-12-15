@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 
-  			<title>Atendimento Preditivo</title>
+  		<title>Atendimento Preditivo</title>
 		<style type="text/css">
 			html, #page { padding:0; margin:0;}
 			body { margin:0; padding:0; width:100%; color:#959595; font:normal 12px/2.0em Sans-Serif;} 
@@ -57,20 +57,28 @@
 			/* Clear both sides to assist with div alignment  */
 			.clr { clear:both; padding:0; margin:0; width:100%; font-size:0px; line-height:0px;}
 		</style>
-		<script type="text/javascript">
-			/* =============================
-			This script generates sample text for the body content. 
-			You can remove this script and any reference to it. 
-			 ============================= */
-			var bodyText=["The smaller your reality, the more convinced you are that you know everything.", "If the facts don't fit the theory, change the facts.", "The past has no power over the present moment.", "This, too, will pass.", "</p><p>You will not be punished for your anger, you will be punished by your anger.", "Peace comes from within. Do not seek it without.", "<h2>Heading</h2><p>The most important moment of your life is now. The most important person in your life is the one you are with now, and the most important activity in your life is the one you are involved with now."]
-			function generateText(sentenceCount){
-				for (var i=0; i<sentenceCount; i++)
-				document.write(bodyText[Math.floor(Math.random()*7)]+" ")
-			}
-		</script>
+	
+<style>
+table.table2 {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: verdana;
+    font-size: 12px;
+}
+	th, td {
+	    text-align: left;
+	    height: 20px;
+	    padding: 6px;
+	}
 
+	tr:nth-child(even){background-color: #ecf0f1}
 
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	th {
+	    background-color: #ff0000;
+	    color: white;
+	}
+</style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
@@ -96,8 +104,36 @@
         chart.draw(data, google.charts.Bar.convertOptions(options));
       }
     </script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
 
-    	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['Mês', 'Visa', 'Master', 'ELO', 'AMEX'],
+         ['2017/08',  165,      938,         522,             998],
+         ['2017/09',  135,      1120,        599,             1268],
+         ['2017/10',  157,      1167,        587,             807],
+         ['2017/11',  139,      1110,        615,             968],
+         ['2017/12',  136,      691,         629,             1026]
+      ]);
+
+    var options = {
+      title : 'Faturamento ADQ',
+      vAxis: {title: 'Transações'},
+      hAxis: {title: 'Mês'},
+      seriesType: 'bars',
+      series: {5: {type: 'line'}}
+    };
+
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
+    </script>	  
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
@@ -141,33 +177,24 @@
   <body>
 
   	<header id="header">
-				<div id="header-inner">	
-					<div id="logo">
-						<h1><a href="#">Cool<span>Logo</span></a></h1>
-					</div>
-					<div class="clr"></div>
-				</div>
-			</header>
 			<div class="feature">
 				<div class="feature-inner">
-				<h1>Heading</h1>
+				<h1>Posto Tigrão CNPJ: 01234567890123</h1>
+				<h4>a</h4>
+
 				</div>
 			</div>
 
     <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<h3>
-				Posto Tigrão CNPJ: 12345678901234
-			</h3>
-		</div>
-	</div>
+
 	<div class="row">
 		<div class="col-md-6">
-			    <div id="transactions_chart" style="width: auto; height: auto;"></div> <div id="rent_chart" style="width: auto; height: auto;"></div>
+			<div id="chart_div" style="width: auto; height: auto;"></div>
+			<div id="transactions_chart" style="width: auto; height: auto;"></div> 
+			<div id="rent_chart" style="width: auto; height: auto;"></div>
 		</div>
 		<div class="col-md-6">
-			<table class="table">
+			<table class="table2">
 				<thead>
 					<font face="verdana" size="5" color="red">Ordens de Serviço Abertas</font>
 					<tr>
