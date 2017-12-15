@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: verdana;
+    font-size: 12px;
+}
 
+th, td {
+    text-align: left;
+    height: 10px;
+    padding: 4px;
+}
 
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+tr:nth-child(even){background-color: #ecf0f1}
+
+th {
+    background-color: #ff0000;
+    color: white;
+}
+</style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
@@ -29,8 +48,36 @@
         chart.draw(data, google.charts.Bar.convertOptions(options));
       }
     </script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
 
-    	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['Mês', 'Visa', 'Master', 'ELO', 'AMEX'],
+         ['2017/08',  165,      938,         522,             998],
+         ['2017/09',  135,      1120,        599,             1268],
+         ['2017/10',  157,      1167,        587,             807],
+         ['2017/11',  139,      1110,        615,             968],
+         ['2017/12',  136,      691,         629,             1026]
+      ]);
+
+    var options = {
+      title : 'Faturamento ADQ',
+      vAxis: {title: 'Transações'},
+      hAxis: {title: 'Mês'},
+      seriesType: 'bars',
+      series: {5: {type: 'line'}}
+    };
+
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
+    </script>	  
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
@@ -83,7 +130,9 @@
 	</div>
 	<div class="row">
 		<div class="col-md-6">
-			    <div id="transactions_chart" style="width: auto; height: auto;"></div> <div id="rent_chart" style="width: auto; height: auto;"></div>
+			<div id="chart_div" style="width: auto; height: auto;"></div>
+			<div id="transactions_chart" style="width: auto; height: auto;"></div> 
+			<div id="rent_chart" style="width: auto; height: auto;"></div>
 		</div>
 		<div class="col-md-6">
 			<table class="table">
