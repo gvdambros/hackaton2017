@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 
-  		<title>Atendimento Preditivo</title>
+  			<title>Atendimento Preditivo</title>
 		<style type="text/css">
 			html, #page { padding:0; margin:0;}
 			body { margin:0; padding:0; width:100%; color:#959595; font:normal 12px/2.0em Sans-Serif;} 
@@ -14,6 +14,7 @@
 			#logo { padding:0; width:auto; float:left;}
 			#logo h1 a, h1 a:hover { color:darkred; text-decoration:none;}
 			#logo h1 span { color:#f8dbdb;}
+
 			/* Header */
 			#header { background:#fff; }
 			#header-inner { margin:0 auto; padding:0; width:970px;}
@@ -56,101 +57,73 @@
 			/* Clear both sides to assist with div alignment  */
 			.clr { clear:both; padding:0; margin:0; width:100%; font-size:0px; line-height:0px;}
 		</style>
-	
-<style>
-table.mytable {
-    border-collapse: collapse;
-    width: 100%;
-    font-family: verdana;
-    font-size: 12px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-    font-family: verdana;
-}
-
-th {
-	color: white;
-    background-color: #FF0000;
-    font-family: verdana;
-}
+		<script type="text/javascript">
+			/* =============================
+			This script generates sample text for the body content. 
+			You can remove this script and any reference to it. 
+			 ============================= */
+			var bodyText=["The smaller your reality, the more convinced you are that you know everything.", "If the facts don't fit the theory, change the facts.", "The past has no power over the present moment.", "This, too, will pass.", "</p><p>You will not be punished for your anger, you will be punished by your anger.", "Peace comes from within. Do not seek it without.", "<h2>Heading</h2><p>The most important moment of your life is now. The most important person in your life is the one you are with now, and the most important activity in your life is the one you are involved with now."]
+			function generateText(sentenceCount){
+				for (var i=0; i<sentenceCount; i++)
+				document.write(bodyText[Math.floor(Math.random()*7)]+" ")
+			}
+		</script>
 
 
-tr.ativo {
-    text-align: left;
-    height: 12px;
-    padding: 6px;
-    background-color: #f2f3f4;
-    font-family: verdana;
-}
-tr.alerta {
-    text-align: left;
-    height: 12px;
-    padding: 6px;
-    background-color: #fadbd8;
-    font-family: verdana;
-}
-tr.sucesso {
-    text-align: left;
-    height: 12px;
-    padding: 6px;
-    background-color: #d5f5e3;
-    font-family: verdana;
-}
-</style>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
+
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Mês', 'Visa', 'MasterCard', 'ELO', 'AMEX'],
-		  ['Setembro', 14050, 6870, 245, 241],
-          ['Outubro', 11222, 5467, 298, 304],
-          ['Novembro', 9874, 4217, 250, 180],
-          ['Dezembro', 569, 247, 111, 54]
+          ['Mês', 'GetNet', 'Elo', 'Master'],
+          ['Outubro', 1000, 400, 200],
+          ['Novembro', 1170, 460, 250],
+          ['Dezembro', 660, 1120, 300],
+          ['Dezembro', 660, 1120, 300]
         ]);
+
         var options = {
           chart: {
-            title: 'Transações ADQ',
-            subtitle: 'ADQ: 4 meses',
+            title: 'Company Performance',
+            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
           }
         };
+
         var chart = new google.charts.Bar(document.getElementById('transactions_chart'));
+
         chart.draw(data, google.charts.Bar.convertOptions(options));
       }
-      </script>
-	<script type="text/javascript">	
-	
-    google.charts.load("current", {packages:['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ["Mês", "Aluguel", { role: "style" } ],
-        ["Setembro", 179.0, "#2980b9"],
-        ["Outubro", 179.0, "#e74c3c"],
-        ["Novembro", 0.0, "#4a235a"],
-        ["Dezembro", 0.0, "#4a235a"]
-      ]);
+    </script>
 
-      var view = new google.visualization.DataView(data);
-      view.setColumns([0, 1,
-                       { calc: "stringify",
-                         sourceColumn: 1,
-                         type: "string",
-                         role: "annotation" },
-                       2]);
+    	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
 
-      var options = {
-        title: "Pagamentos Alugueis:",
-        bar: {groupWidth: "80%"},
-        legend: { position: "none" },
-      };
-      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
-      chart.draw(view, options);
-  }
-  </script>
+      	function drawChart() {
+              var data = google.visualization.arrayToDataTable([
+        ['Genre', 'Fantasy & Sci Fi', 'Romance', 'Mystery/Crime', 'General',
+         'Western', 'Literature', { role: 'annotation' } ],
+        ['2010', 10, 24, 20, 32, 18, 5, ''],
+        ['2020', 16, 22, 23, 30, 16, 9, ''],
+        ['2030', 28, 19, 29, 30, 12, 13, '']
+      	]);
+
+      	var options = {
+        width: 600,
+        height: 400,
+        legend: { position: 'top', maxLines: 3 },
+        bar: { groupWidth: '75%' },
+        isStacked: true,
+      	};
+
+        var chart = new google.charts.Bar(document.getElementById('rent_chart'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -168,21 +141,33 @@ tr.sucesso {
   <body>
 
   	<header id="header">
+				<div id="header-inner">	
+					<div id="logo">
+						<h1><a href="#">Cool<span>Logo</span></a></h1>
+					</div>
+					<div class="clr"></div>
+				</div>
+			</header>
 			<div class="feature">
 				<div class="feature-inner">
-				<h1>Posto Tigrão CNPJ: 01234567890123</h1>
+				<h1>Heading</h1>
 				</div>
 			</div>
 
     <div class="container-fluid">
-
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				Posto Tigrão CNPJ: 12345678901234
+			</h3>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-md-6">
-			<div id="transactions_chart" style="width: auto; height: auto;"></div> 
-			<div id="columnchart_values" style="width: auto; height: auto;"></div>
+			    <div id="transactions_chart" style="width: auto; height: auto;"></div> <div id="rent_chart" style="width: auto; height: auto;"></div>
 		</div>
 		<div class="col-md-6">
-			<table class="mytable">
+			<table class="table">
 				<thead>
 					<font face="verdana" size="5" color="red">Ordens de Serviço Abertas</font>
 					<tr>
@@ -204,7 +189,7 @@ tr.sucesso {
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="ativo">
+					<tr class="active">
 						<td>
 							1
 						</td>
@@ -221,7 +206,7 @@ tr.sucesso {
 							Em atendimento
 						</td>
 					</tr>
-					<tr class="sucesso">
+					<tr class="success">
 						<td>
 							2
 						</td>
@@ -238,7 +223,7 @@ tr.sucesso {
 							Pendente
 						</td>
 					</tr>
-					<tr class="alerta">
+					<tr class="danger">
 						<td>
 							3
 						</td>
@@ -257,7 +242,7 @@ tr.sucesso {
 					</tr>
 				</tbody>
 			</table>
-			<table class="mytable">
+			<table class="table">
 				<thead>
 					<font face="verdana" size="5" color="red">Solicitações de Serviço</font>
 					<tr>
@@ -279,7 +264,7 @@ tr.sucesso {
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="ativo">
+					<tr class="active">
 						<td>
 							1
 						</td>
@@ -296,7 +281,7 @@ tr.sucesso {
 							Em atendimento
 						</td>
 					</tr>
-					<tr class="sucesso">
+					<tr class="success">
 						<td>
 							2
 						</td>
@@ -313,7 +298,7 @@ tr.sucesso {
 							Pendente
 						</td>
 					</tr>
-					<tr class="alerta">
+					<tr class="danger">
 						<td>
 							3
 						</td>
@@ -332,7 +317,7 @@ tr.sucesso {
 					</tr>
 				</tbody>
 			</table>
-			<table class="mytable">
+			<table class="table">
 				<thead>
 					<font face="verdana" size="5" color="red">Últimos Registros</font>
 					<tr>
@@ -352,7 +337,7 @@ tr.sucesso {
 				</thead>
 				<tbody>
 
-					<tr class="ativo">
+					<tr class="active">
 						<td>
 							1
 						</td>
@@ -366,7 +351,7 @@ tr.sucesso {
 							Em atendimento
 						</td>
 					</tr>
-					<tr class="sucesso">
+					<tr class="success">
 						<td>
 							2
 						</td>
@@ -380,7 +365,7 @@ tr.sucesso {
 							Pendente
 						</td>
 					</tr>
-					<tr class="alerta">
+					<tr class="danger">
 						<td>
 							4
 						</td>
@@ -396,64 +381,14 @@ tr.sucesso {
 					</tr>
 				</tbody>
 			</table>
-			<table class="mytable">
-				<thead>
-					<font face="verdana" size="5" color="red">Ofertas Ativas</font>
-					<tr>
-						<th>
-							#
-						</th>
-						<th>
-							Nome
-						</th>
-						<th>
-							Início
-						</th>
-						<th>
-							Fim
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-
-					<tr class="ativo">
-						<td>
-							1
-						</td>
-						<td>
-							R$300
-						</td>
-						<td>
-							04/2012
-						</td>
-						<td>
-							07/2012
-						</td>
-					</tr>
-					<tr class="ativo">
-						<td>
-							1
-						</td>
-						<td>
-							R$300
-						</td>
-						<td>
-							04/2012
-						</td>
-						<td>
-							07/2012
-						</td>
-					</tr>
-				</tbody>
-			</table>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<table class="mytable">
+			<table class="table">
 				<thead>
 					<center> <font  face="verdana" size="5" color="red">Informações Técnicas</font> </center>
-					<tr>
+					<tr class="danger">
 						<th>
 							#
 						</th>
@@ -473,9 +408,9 @@ tr.sucesso {
 						<td>
 							1
 						</td>
-						<td>
+						<th>
 							5464544848484C
-						</td>
+						</th>
 						<td>
 							Móvel GPRS
 						</td>
@@ -488,9 +423,9 @@ tr.sucesso {
 						<td>
 							2
 						</td>
-						<td>
+						<th>
 							489456445CASSF
-						</td>
+						</th>
 						<td>
 							Vermelhinha
 						</td>
@@ -504,10 +439,10 @@ tr.sucesso {
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<table class="mytable">
+			<table class="table">
 				<thead>
 					<center> <font face="verdana" size="5" color="red">Incidentes</font> </center>
-					<tr>
+					<tr class="danger">
 						<th>
 							Natureza
 						</th>
@@ -542,14 +477,7 @@ tr.sucesso {
 		</div>
 	</div>
 </div>
-			<footer id="footer">
-				<div id="footer-inner">
-					<p>&copy; Copyright <a href="#">Your Site</a> &#124; <a href="#">Terms of Use</a> &#124; <a href="#">Privacy Policy</a></p>
-					<div class="clr"></div>
-			
-				</div>
-			</footer>
-			</br>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
