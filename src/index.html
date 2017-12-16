@@ -108,30 +108,56 @@ tr.sucesso {
 </style>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
+      google.charts.load('current', {'packages':['line']});
       google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Mês', 'Visa', 'MasterCard', 'ELO', 'AMEX'],
-		  ['Setembro', 14050, 6870, 245, 241],
-          ['Outubro', 11222, 5467, 298, 304],
-          ['Novembro', 9874, 4217, 250, 180],
-          ['Dezembro', 569, 247, 111, 54]
-        ]);
-        var options = {
-          chart: {
-            title: 'Transações ADQ',
-            subtitle: 'ADQ: 4 meses',
-            tooltip: ""
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Período');
+      data.addColumn('number', 'Visa');
+      data.addColumn('number', 'MasterCard');
+      data.addColumn('number', 'ELO');
+	  data.addColumn('number', 'AMEX');
+
+      data.addRows([
+	    ['M9S1', 3208,	1517,	479,	0],
+		['M9S2', 3592,	1765,	539,	0],
+        ['M9S3', 3208,	1517,	479,	0],
+		['M9S4', 3592,	1765,	539,	0],
+        ['M10S1', 2479,	766,	404,	0],
+        ['M10S2', 2333,	847,	516,	0],
+        ['M10S3', 3678,	1499,	477,	198],
+        ['M10S4', 3508,	2027,	524,	196],
+        ['M11S1', 3480,	1793,	541,	191],
+        ['M11S2', 3770,	1925,	510,	196],
+        ['M11S3', 3210,	1661,	488,	173],
+        ['M11S4', 3102,	241,	469,	171],
+        ['M12S1', 1600,	388,	159,	54],
+        ['M12S2', 455,	111,	34,	12]
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Faturamento',
+          subtitle: 'M = Mês  S = Semana \n Ex: M6S2: Segunda semana de Junho',
+		  colors: ['#4a235a'] 
+        },
+        width: 600,
+        height: 250,
+        axes: {
+          x: {
+            0: {side: 'Botton'}
           }
-        };
+        }
+      };
 
+      var chart = new google.charts.Line(document.getElementById('line_top_x'));
 
-        var chart = new google.charts.Bar(document.getElementById('transactions_chart'));
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      }
-      </script>
-	<script type="text/javascript">	
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+  </script>
+   <script type="text/javascript">
 	
     google.charts.load("current", {packages:['corechart']});
     google.charts.setOnLoadCallback(drawChart);
@@ -188,7 +214,7 @@ tr.sucesso {
 
 	<div class="row">
 		<div class="col-md-6">
-			<div class="mydiv" id="transactions_chart" style="width: auto; height: 250px;"></div> 
+			<div id="line_top_x"></div> 
 		</br>
 			<div class="mydiv" id="columnchart_values" style="width: auto; height: auto;"></div>
 		</div>
