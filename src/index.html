@@ -63,11 +63,19 @@ table.mytable {
     width: 100%;
     font-family: verdana;
     font-size: 12px;
+    box-shadow: 2px 2px 2px #999; 
+    border: 1px solid gray;
 }
+
+
 
 tr:nth-child(even) {
     background-color: #dddddd;
     font-family: verdana;
+}
+
+td {
+	    min-width: 10px;
 }
 
 th {
@@ -78,21 +86,18 @@ th {
 
 
 tr.ativo {
-    text-align: left;
     height: 12px;
     padding: 6px;
     background-color: #f2f3f4;
     font-family: verdana;
 }
 tr.alerta {
-    text-align: left;
     height: 12px;
     padding: 6px;
     background-color: #fadbd8;
     font-family: verdana;
 }
 tr.sucesso {
-    text-align: left;
     height: 12px;
     padding: 6px;
     background-color: #d5f5e3;
@@ -550,8 +555,5 @@ tr.sucesso {
 				</div>
 			</footer>
 			</br>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
   </body>
 </html>
