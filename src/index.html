@@ -132,11 +132,11 @@ tr.sucesso {
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
-        ["Mês", "Aluguel", { role: "style" } ],
-        ["Setembro", 179.0, "#2980b9"],
-        ["Outubro", 179.0, "#e74c3c"],
-        ["Novembro", 0.0, "#4a235a"],
-        ["Dezembro", 0.0, "#4a235a"]
+        ["Mês", "Aluguel", { role: "style" },  { role: 'tooltip' },],
+        ["Setembro", 179.0, "#2980b9", "GPRS: R$149,00 \n Vermelhinha: R$30,00 \n Pago"],
+        ["Outubro", 179.0, "#e74c3c", "GPRS: R$149,00 \n Vermelhinha: R$30,00 \n Em aberto"],
+        ["Novembro", 0.0, "#4a235a", ""],
+        ["Dezembro", 0.0, "#4a235a", ""]
       ]);
 
       var view = new google.visualization.DataView(data);
@@ -145,7 +145,7 @@ tr.sucesso {
                          sourceColumn: 1,
                          type: "string",
                          role: "annotation" },
-                       2]);
+                       2, 3]);
 
       var options = {
         title: "Pagamentos Alugueis:",
@@ -183,7 +183,7 @@ tr.sucesso {
 
 	<div class="row">
 		<div class="col-md-6">
-			<div id="transactions_chart" style="width: auto; height: auto;"></div> 
+			<div id="transactions_chart" style="width: auto; height: 250px;"></div> 
 			<div id="columnchart_values" style="width: auto; height: auto;"></div>
 		</div>
 		<div class="col-md-6">
@@ -306,7 +306,7 @@ tr.sucesso {
 							2
 						</td>
 						<td>
-							Manutenção
+							Jéssica
 						</td>
 						<td>
 							<a href="https://www.w3schools.com/html/" target="_blank">5879154</a>
