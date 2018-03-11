@@ -1,2 +1,4 @@
-# hackaton2017
-# hackaton2017
+Protótipo desenvolvido durante Hackaton Getnet 2017.
+
+.
+
